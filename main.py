@@ -3,6 +3,7 @@ from linkpreview import link_preview
 import requests as ulreq
 from PIL import Image
 from fastapi import FastAPI
+import urllib.parse
 
 app = FastAPI()
 def getsizes(uri):
@@ -15,6 +16,7 @@ def getsizes(uri):
 
 def get_preview_link(link):
     preview = link_preview(link)
+    parsed_url = urllib.parse.urlparse(link)
     width = preview.width
     height = preview.height
     if ((preview.width and preview.height) or preview.image ):
@@ -28,6 +30,7 @@ def get_preview_link(link):
         'force_title': preview.force_title,
         'absolute_image': preview.absolute_image,
         'site_name':preview.site_name,
+        'host': 'https://'+parsed_url.netloc,
         'width': width,
         'height': height
     }
