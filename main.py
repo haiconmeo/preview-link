@@ -24,6 +24,7 @@ def get_preview_link(link):
         width,height =getsizes(preview.image)
 
     return {
+        'link':link,
         'title': preview.title,
         'description': preview.description,
         'image': preview.image,
