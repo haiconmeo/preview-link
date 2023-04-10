@@ -27,7 +27,7 @@ class LinkGrabber:
     def __init__(
         self,
         initial_timeout: int = 20,
-        maxsize: int = 1048576,
+        maxsize: int = 10485760,
         receive_timeout: int = 10,
         chunk_size: int = 1024,
     ):
