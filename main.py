@@ -15,8 +15,8 @@ def getsizes(uri):
     return image.size
 
 def get_preview_link(link):
-    if ('https' not in link):
-        link = 'https://'+link
+    # if ('https' not in link):
+    #     link = 'https://'+link
     preview = link_preview(link)
     parsed_url = urllib.parse.urlparse(link)
     width = preview.width
