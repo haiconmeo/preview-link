@@ -43,6 +43,8 @@ class LinkGrabber:
         self.chunk_size = chunk_size
 
     def get_content(self, url: str, headers: dict = None):
+        if 'instagram' in url:
+            self.headers ={}
         r = requests.get(
             url,
             stream=True,
